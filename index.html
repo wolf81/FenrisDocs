@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Fenris  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Fenris  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Fenris Docs</a> (35% documented)</p>
+        <p class="header-right"><a href="http://github.com/wolf81/Fenris"><img src="img/gh.png"/>View on GitHub</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Fenris Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Fenris  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/ButtonItem.html">ButtonItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/FixedSpaceItem.html">FixedSpaceItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/LabelItem.html">LabelItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:6Fenris18LabeledMenuBuilderC">LabeledMenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/NumberChooserItem.html">NumberChooserItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ServiceLocator.html">ServiceLocator</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/s:6Fenris17SimpleMenuBuilderC">SimpleMenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/TextChooserItem.html">TextChooserItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/ToggleItem.html">ToggleItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/MenuScene.html">MenuScene</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris11MenuBuilderP">MenuBuilder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols.html#/s:6Fenris17MenuConfigurationP">MenuConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Protocols/MenuItem.html">MenuItem</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Structs.html">Structures</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Structs.html#/s:6Fenris4MenuV">Menu</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Typealiases.html">Type Aliases</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/Font">Font</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/s:6Fenris13ValidateBlocka">ValidateBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Typealiases.html#/ViewController">ViewController</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <h1 id='fenris' class='heading'>Fenris</h1>
+<h2 id='introduction' class='heading'>Introduction</h2>
+
+<p>Fenris is a framework built on top of SpriteKit. The aim of Fenris is to make game development easier. My personal aim is to use this framework for a tiled, turn-based RPG that is currently a work-in-progress. </p>
+
+<p>Currently Fenris is still very much a work in progress. At the same time, one of the goals is to release early and often and make sure most of the released work is tested and documented.</p>
+
+<p>As of version 0.1.3 the following functionality is provided:</p>
+
+<ul>
+<li><p>Several components to ease the creation of in-game menus.</p></li>
+<li><p>Several components to ease interaction with the mouse, keyboard, gamepad or touch.</p></li>
+<li><p>A ServiceLocator that can be used to prevent creating a lot of singletons in an app. </p></li>
+</ul>
+
+<p>Some of the above components are not yet fully completed, but are mostly in a usable state.</p>
+
+<p>A simple macOS demo app is provided to showcase the above functionality. In the near future I hope to add at least 1 very small game that makes use of the framework.</p>
+<h2 id='guides' class='heading'>Guides</h2>
+<h3 id='the-service-locator' class='heading'>The Service Locator</h3>
+
+<p>The ServiceLocator is very easy to use, but it&rsquo;s important to keep 1 rule in mind: for every type, only 1 instance can be added to the ServiceLocator. Adding multiple instances of the same type to the ServiceLocator will raise an exception.</p>
+<h4 id='registering-a-service' class='heading'>Registering a Service</h4>
+
+<p>Only classes that conform to the <code><a href="Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a></code> marker protocol can be registered with the ServiceLocator. A simple service could be created as such:</p>
+<pre class="highlight plaintext"><code>class HelloService: LocatableService {
+    private var name: String 
+
+    init(name: String) {
+        self.name = name
+    }
+
+    func sayHello() {
+        print "Hello, \(self.name)"
+    }
+}
+</code></pre>
+
+<p>In order to register a <code><a href="Protocols.html#/s:6Fenris16LocatableServiceP">LocatableService</a></code> with the ServiceLocator, just call the <code>add(service:)</code> function with an instance of a class:</p>
+<pre class="highlight plaintext"><code>do {
+    let service = HelloService(name: "Peter")
+    try ServiceLocator.shared.add(service: service)
+} catch let error {
+    print(error)
+}
+</code></pre>
+<h4 id='retrieving-a-service' class='heading'>Retrieving a Service</h4>
+
+<p>In order to retrieve a service from the ServiceLocator, call the <code>get(service:)</code> function with the class type you want to retrieve, i.e. as such:</p>
+<pre class="highlight plaintext"><code>do {
+    let service = try ServiceLocator.shared.get(service: HelloService.self) 
+    service.sayHello // --&gt; "Hello, Peter"
+} catch let error {
+    print(error)
+}
+</code></pre>
+
+<p>For performance reasons on could consider to ignore the error handling as such:</p>
+<pre class="highlight plaintext"><code>let service = try! ServiceLocator.shared.get(service: HelloService.self)
+</code></pre>
+
+<p>Though please be aware this will cause an app to crash if the service was not registered. </p>
+<h4 id='removing-a-service' class='heading'>Removing a Service</h4>
+
+<p>Finally it&rsquo;s possible to remove a service, by calling the <code>remove(service:)</code> function with the class type you want to remove, i.e. as such:</p>
+<pre class="highlight plaintext"><code>do {
+    try ServiceLocator.shared.remove(service: HelloService.self)
+} catch let error {
+    print(error)
+}
+</code></pre>
+<h3 id='menu-creation' class='heading'>Menu Creation</h3>
+
+<p><em>&hellip; To be added &hellip;</em></p>
+<h3 id='interaction-through-input-devices' class='heading'>Interaction Through Input Devices</h3>
+
+<p><em>&hellip; To be added &hellip;</em></p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://wolftrail.net" target="_blank" rel="external">Wolftrail</a>. All rights reserved. (Last updated: 2019-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.10.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
